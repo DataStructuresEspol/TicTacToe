@@ -10,9 +10,21 @@ public class Bot {
         this.symbol = symbol;
     }
     
-    public Matrix makeDecition(Tree<Matrix> tree){
-        //TODO
-        return null;
+    public Matrix makeDecition(Tree<Matrix> tree, Symbols oponentSymbol){
+        int max = -100;
+        int decition = 0;
+        thinkNextPlays(tree, symbol);
+        for (Tree<Matrix> t: tree.getChildren()){
+            thinkNextPlays(t, oponentSymbol);
+            for (int i=0; i<t.getChildren().size(); i++){
+                int utility = t.getChildren().get(i).getRoot().calculateUtility(oponentSymbol);
+                if (max < utility){
+                    max = utility;
+                    decition = i;
+                }
+            }
+        }
+        return tree.getChildren().get(decition).getRoot();
     }
     
     private void thinkNextPlays(Tree<Matrix> tree, Symbols symbol){
