@@ -31,4 +31,12 @@ public class Tree<E> {
         //TODO
         return null;
     }
+    
+    public void setChildren(int index, Tree<E> tree){
+        //TODO
+    }
+    
+    public boolean isLeaf(){
+        return false;
+    }
 }
