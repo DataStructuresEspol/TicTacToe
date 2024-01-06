@@ -5,12 +5,20 @@ public class Game {
     private Tree<Matrix> plays;
     private Board board;
     
+    public Game(){
+        board = new Board();
+        plays = new Tree<Matrix>(new Matrix());
+    }
+    
     public void next(Matrix matrix){
-        //TODO
+        board.setValue(matrix);
     }
     
     public boolean win(){
-        //TODO
-        return false;
+        return board.isFull();
+    }
+    
+    public Tree<Matrix> getPlays(){
+        return plays;
     }
 }
