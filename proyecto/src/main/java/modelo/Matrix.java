@@ -9,4 +9,14 @@ public class Matrix {
         //TODO
         return 0;
     }
+    
+    public Symbols[][] getPlay(){
+        //TODO
+        return null;
+    }
+    
+    public Matrix copy(){
+        //TODO
+        return null;
+    }
 }
