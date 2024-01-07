@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 librariesOwn\Tree.class
 controller\IniciaJuegoController.class
 controller\RolJuegoController.class
+=======
+modelo\Main.class
+librariesOwn\Tree.class
+com\mycompany\proyecto\PrimaryController.class
+>>>>>>> 725decbca6d5412a96500e2be1be4dbdeb73cf07
 controller\PrincipalController.class
 modelo\Board.class
 modelo\Matrix.class
@@ -8,8 +14,14 @@ modelo\Bot.class
 modelo\Symbol.class
 module-info.class
 librariesOwn\TreeNode.class
+<<<<<<< HEAD
 modelo\Tree.class
 com\mycompany\proyecto\App.class
 controller\SimboloJugadorController.class
+=======
+com\mycompany\proyecto\SecondaryController.class
+modelo\Tree.class
+com\mycompany\proyecto\App.class
+>>>>>>> 725decbca6d5412a96500e2be1be4dbdeb73cf07
 modelo\Tree$Node.class
 modelo\Game.class

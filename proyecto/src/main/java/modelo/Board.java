@@ -5,6 +5,8 @@ package modelo;
 public class Board {
     private Matrix matrix;
     
+    public Board(){this.matrix = new Matrix();}
+    
     public Matrix getBoard(){
         return this.matrix;
     }

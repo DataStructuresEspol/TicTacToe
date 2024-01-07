@@ -1,5 +1,6 @@
 
 package modelo;
+import librariesOwn.Tree;
 
 public class Game {
     private Tree<Matrix> plays;
@@ -20,5 +21,9 @@ public class Game {
     
     public Tree<Matrix> getPlays(){
         return plays;
+    }
+    
+    public Board getBoard(){
+        return board;
     }
 }
