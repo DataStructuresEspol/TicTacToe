@@ -1,6 +1,7 @@
 modelo\Main.class
 librariesOwn\Tree.class
 com\mycompany\proyecto\PrimaryController.class
+controller\RolJuegoController.class
 controller\PrincipalController.class
 modelo\Board.class
 modelo\Matrix.class

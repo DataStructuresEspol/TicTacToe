@@ -11,7 +11,6 @@ class TreeNode<E> {
     public TreeNode(E content) {
         this.content = content;
         this.children = new ArrayList<>();
-        this.children = null;
     }
 
     public E getContent() {
