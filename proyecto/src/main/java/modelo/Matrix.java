@@ -1,6 +1,8 @@
 
 package modelo;
 
+import java.util.Objects;
+
 public class Matrix {
     private Symbol[][] play;
     
@@ -10,33 +12,35 @@ public class Matrix {
             for (int j=0; j<3; j++){play[i][j] = Symbol.EMPTY;}
         }
     }
-    public int calculateUtility(Symbol symbol){
-        int playerWays = countWaysToWin(play, symbol);
-        int opponentWays = countWaysToWin(play, (symbol == Symbol.X) ? Symbol.O : Symbol.X);
+    public int calculateUtility(Symbol player){
+        Symbol opponent = (player == Symbol.X) ? Symbol.O : Symbol.X;
+
+        int playerWays = countWaysToWin(play, opponent);
+        int opponentWays = countWaysToWin(play, player);
 
         return playerWays - opponentWays;
     }
 
-    private static int countWaysToWin(Symbol[][] play, Symbol player) {
+    private static int countWaysToWin(Symbol[][] play, Symbol opponent) {
         int waysToWin = 0;
 
         for (int i = 0; i < 3; i++) {
-            if (play[i][0] == player && play[i][1] == player && play[i][2] == player) {
+            if (play[i][0] != opponent && play[i][1] != opponent && play[i][2] != opponent) {
                 waysToWin++;
             }
         }
 
         for (int j = 0; j < 3; j++) {
-            if (play[0][j] == player && play[1][j] == player && play[2][j] == player) {
+            if (play[0][j] != opponent && play[1][j] != opponent && play[2][j] != opponent) {
                 waysToWin++;
             }
         }
 
-        if (play[0][0] == player && play[1][1] == player && play[2][2] == player) {
+        if (play[0][0] != opponent && play[1][1] != opponent && play[2][2] != opponent) {
             waysToWin++;
         }
 
-        if (play[0][2] == player && play[1][1] == player && play[2][0] == player) {
+        if (play[0][2] != opponent && play[1][1] != opponent && play[2][0] != opponent) {
             waysToWin++;
         }
 
