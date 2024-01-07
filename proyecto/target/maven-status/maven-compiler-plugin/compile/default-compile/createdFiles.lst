@@ -1,6 +1,15 @@
-modelo\Tablero.class
+modelo\Main.class
+librariesOwn\Tree.class
 com\mycompany\proyecto\PrimaryController.class
 controller\PrincipalController.class
+modelo\Board.class
+modelo\Matrix.class
+modelo\Bot.class
+modelo\Symbol.class
 module-info.class
+librariesOwn\TreeNode.class
 com\mycompany\proyecto\SecondaryController.class
+modelo\Tree.class
 com\mycompany\proyecto\App.class
+modelo\Tree$Node.class
+modelo\Game.class

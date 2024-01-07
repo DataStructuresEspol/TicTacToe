@@ -1,10 +1,15 @@
 
 package modelo;
 
-
 public class Matrix {
     private Symbol[][] play;
     
+    public Matrix(){
+        play = new Symbol[3][3];
+        for (int i=0; i<3; i++){
+            for (int j=0; j<3; j++){play[i][j] = Symbol.EMPTY;}
+        }
+    }
     public int calculateUtility(Symbol symbol){
         int playerWays = countWaysToWin(play, symbol);
         int opponentWays = countWaysToWin(play, (symbol == Symbol.X) ? Symbol.O : Symbol.X);
@@ -43,7 +48,21 @@ public class Matrix {
     }
     
     public Matrix copy(){
-        //TODO
-        return null;
+        Matrix m = new Matrix();
+        for (int i=0; i<3; i++){
+            for (int j=0; j<3; j++){m.getPlay()[i][j] = play[i][j];}
+        }
+        return m;
+    }
+    
+    public String toString(){
+        String s = "";
+        for (int i=0; i<3; i++){
+            s+= "\n";
+            for (int j=0; j<3; j++){
+                s += play[i][j].toString();
+            }
+        }
+        return s;
     }
 }
