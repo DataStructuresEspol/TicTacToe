@@ -1,5 +1,6 @@
 
 package modelo;
+import librariesOwn.Tree;
 
 public class Bot {
     private Symbol symbol;
