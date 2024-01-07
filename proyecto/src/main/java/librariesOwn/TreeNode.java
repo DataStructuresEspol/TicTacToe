@@ -7,6 +7,7 @@ class TreeNode<E> {
     
     private E content;
     private List<Tree<E>> children;
+    private int capacity = 1;
 
     public TreeNode(E content) {
         this.content = content;

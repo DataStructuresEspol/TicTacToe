@@ -28,8 +28,12 @@ public class Tree<E> {
         return root.getChildren();
     }
     
-    public void setChildren(int index, Tree<E> children) {
-        this.root.getChildren().get(index).setChildren(index, children);
+    public void setChildren(int index, Tree<E> treeHijo) {
+        List<Tree<E>> children = root.getChildren();
+        while (children.size() <= index) {
+            children.add(null);
+        }
+        children.set(index, treeHijo);
     }
     
     public boolean isLeaf () {
