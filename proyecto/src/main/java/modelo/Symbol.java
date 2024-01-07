@@ -2,6 +2,6 @@
 package modelo;
 
 
-public enum Symbols {
+public enum Symbol {
     X, O, EMPTY;
 }

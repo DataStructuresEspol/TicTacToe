@@ -6,16 +6,26 @@ public class Board {
     private Matrix matrix;
     
     public Matrix getBoard(){
-        //TODO
-        return null;
+        return this.matrix;
     }
     
     public void setValue(Matrix matrix){
-        //Todo
+        this.matrix = matrix;
     }
     
     public boolean isFull(){
-        //Todo
-        return false;
+        int size = 0;
+        int e = 0;
+
+        Symbol[][] play = this.matrix.getPlay();
+
+        for (int i = 0; i < play.length; i++) {
+            for (int j = 0; j < play[i].length; j++) {
+                size++;
+                if (!play[i][j].equals(Symbol.EMPTY)) e++;
+            }
+        }
+
+        return e == size;
     }
 }

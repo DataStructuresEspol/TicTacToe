@@ -1,16 +1,14 @@
 
 package modelo;
 
-import java.util.List;
-
 public class Bot {
-    private Symbols symbol;
+    private Symbol symbol;
     
-    public Bot(Symbols symbol){
+    public Bot(Symbol symbol){
         this.symbol = symbol;
     }
     
-    public Matrix makeDecition(Tree<Matrix> tree, Symbols oponentSymbol){
+    public Matrix makeDecition(Tree<Matrix> tree, Symbol oponentSymbol){
         int max = -100;
         int decition = 0;
         thinkNextPlays(tree, symbol);
@@ -27,12 +25,12 @@ public class Bot {
         return tree.getChildren().get(decition).getRoot();
     }
     
-    private void thinkNextPlays(Tree<Matrix> tree, Symbols symbol){
+    private void thinkNextPlays(Tree<Matrix> tree, Symbol symbol){
         Matrix matrix = tree.getRoot();
         int children = 0;
         for (int i=0; i<matrix.getPlay().length; i++){
             for (int j=0; j<matrix.getPlay()[i].length; j++){
-                if (matrix.getPlay()[i][j].equals(Symbols.EMPTY)){
+                if (matrix.getPlay()[i][j].equals(Symbol.EMPTY)){
                     Matrix m = matrix.copy();
                     m.getPlay()[i][j] = symbol;
                     tree.setChildren(children, new Tree(m));
