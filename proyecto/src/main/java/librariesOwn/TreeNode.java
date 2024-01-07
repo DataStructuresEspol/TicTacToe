@@ -1,6 +1,6 @@
 package librariesOwn;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 class TreeNode<E> {
@@ -10,7 +10,8 @@ class TreeNode<E> {
 
     public TreeNode(E content) {
         this.content = content;
-        this.children = new LinkedList<>();
+        this.children = new ArrayList<>();
+        this.children = null;
     }
 
     public E getContent() {
@@ -25,8 +26,8 @@ class TreeNode<E> {
         return children;
     }
 
-    public void setChildren(List<Tree<E>> children) {
-        this.children = children;
+    public void setChildren(int index, Tree<E> treeHijo) {
+        this.children.get(index).setRoot(treeHijo.getRoot());
     }
 
     @Override
