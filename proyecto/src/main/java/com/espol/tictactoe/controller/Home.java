@@ -24,29 +24,26 @@ public class Home {
         System.exit(0);
     }
 
-    private void history() throws IOException {
-        App.setRoot("history");
+    private void history()  {
+        try {
+            App.setRoot("history");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void play() throws IOException {
-        App.setRoot("startConfiguration");
+    private void play() {
+        try {
+            App.setRoot("startConfiguration");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setInitialActions() {
         exit.setOnAction(e -> exit());
-        history.setOnAction(e -> {
-            try {
-                history();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        });
-        play.setOnAction(e -> {
-            try {
-                play();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        });
+        history.setOnAction(e -> history());
+        play.setOnAction(e -> play());
+
     }
 }

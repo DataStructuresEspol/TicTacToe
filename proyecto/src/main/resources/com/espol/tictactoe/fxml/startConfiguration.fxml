@@ -15,7 +15,7 @@
          <children>
             <ImageView fx:id="returnButton" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/return.png" />
+                  <Image url="@../img/return.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -53,7 +53,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/pcvspc.png" />
+                              <Image url="@../img/pcvspc.png" />
                            </image>
                         </ImageView>
                         <Label text="Computadora vs Computadora" textFill="WHITE">
@@ -67,7 +67,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/humanvspc.jpg" />
+                              <Image url="@../img/humanvspc.jpg" />
                            </image>
                         </ImageView>
                         <Label text="Computadora vs Humano" textFill="WHITE">
@@ -81,7 +81,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@img/humanvshuman.jpg" />
+                              <Image url="@../img/humanvshuman.jpg" />
                            </image>
                         </ImageView>
                         <Label text="Humano vs Humano" textFill="WHITE">

@@ -12,7 +12,7 @@ public class StartConfiguration {
     private ImageView returnButton;
 
     public void initialize() {
-        this.returnHome();
+        this.setInitialActions();
     }
 
     private void returnHome() {
@@ -21,5 +21,11 @@ public class StartConfiguration {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    private void setInitialActions() {
+        returnButton.setOnMouseClicked((event) -> {
+            returnHome();
+        });
     }
 }
