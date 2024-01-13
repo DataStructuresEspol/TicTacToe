@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="252.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.espol.tictactoe.controller.SimboloJugadorController">
+    <stylesheets>
+        <URL value="@/com/espol/tictactoe/styles/simbolojugador.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="29.0" layoutY="22.0" text="¿Qué símbolo escoge para iniciar el juego?" />
+      <ImageView fitHeight="86.0" fitWidth="86.0" layoutX="81.0" layoutY="90.0">
+         <image>
+            <Image url="@../images/X%20juego%20tres%20en%20rayas.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="105.0" fitWidth="105.0" layoutX="314.0" layoutY="90.0">
+         <image>
+            <Image url="@../images/circle%20juego%20tres%20en%20raya.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
