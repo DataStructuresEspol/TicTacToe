@@ -1,4 +1,4 @@
-package librariesOwn;
+package ds;
 
 import java.util.ArrayDeque;
 import java.util.List;

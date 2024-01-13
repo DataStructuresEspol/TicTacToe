@@ -1,6 +1,6 @@
 
 package modelo;
-import librariesOwn.Tree;
+import ds.Tree;
 
 public class Game {
     private Tree<Matrix> plays;
