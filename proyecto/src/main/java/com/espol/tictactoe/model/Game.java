@@ -1,5 +1,5 @@
 
-package com.espol.tictactoe.modelo;
+package com.espol.tictactoe.model;
 import com.espol.tictactoe.ds.Tree;
 
 public class Game {

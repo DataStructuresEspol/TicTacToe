@@ -7,6 +7,6 @@ module com.mycompany.proyecto {
     exports com.espol.tictactoe;
     opens com.espol.tictactoe.controller to javafx.fxml;
     exports com.espol.tictactoe.controller;
-    opens com.espol.tictactoe.modelo to javafx.fxml;
-    exports com.espol.tictactoe.modelo;
+    opens com.espol.tictactoe.model to javafx.fxml;
+    exports com.espol.tictactoe.model;
 }

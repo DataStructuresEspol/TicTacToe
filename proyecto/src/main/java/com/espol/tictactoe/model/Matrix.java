@@ -1,5 +1,5 @@
 
-package com.espol.tictactoe.modelo;
+package com.espol.tictactoe.model;
 
 public class Matrix {
     private Symbol[][] play;
