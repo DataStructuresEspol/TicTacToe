@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author ariel
  */
-public class IniciaJuegoController implements Initializable {
+public class GamePlay implements Initializable {
 
     /**
      * Initializes the com.espol.tictactoe.controller class.
