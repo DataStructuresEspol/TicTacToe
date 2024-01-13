@@ -1,14 +1,10 @@
 
-<<<<<<< HEAD:proyecto/src/main/java/modelo/Bot.java
-package modelo;
+
+package com.espol.tictactoe.model;
+import com.espol.tictactoe.ds.Tree;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import librariesOwn.Tree;
-=======
-package com.espol.tictactoe.model;
-import com.espol.tictactoe.ds.Tree;
->>>>>>> 9a41306b407c1ac61053bba5f5d1213010554c18:proyecto/src/main/java/com/espol/tictactoe/model/Bot.java
 
 public class Bot {
     private Symbol symbol;
