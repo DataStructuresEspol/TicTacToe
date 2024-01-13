@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #121B23;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.espol.tictactoe.controller.Home">
+   <children>
+      <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+         <children>
+            <Label text="Smart " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Label text="Tic Tac Toe!" textFill="#60fecf">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="50.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox alignment="CENTER" spacing="50.0">
+         <children>
+            <Button fx:id="play" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: #233542; -fx-background-radius: 10;" text="Jugar!" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="history" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: #233542; -fx-background-radius: 10;" text="Historial" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="exit" mnemonicParsing="false" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: #233542; -fx-background-radius: 10;" text="Salir" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="30.0" right="30.0" top="50.0" />
+   </padding>
+</VBox>

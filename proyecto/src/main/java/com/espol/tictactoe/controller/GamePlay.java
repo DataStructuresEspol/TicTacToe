@@ -4,27 +4,34 @@
  */
 package com.espol.tictactoe.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
  * @author ariel
  */
-public class GamePlay implements Initializable {
+public class GamePlay {
 
     @FXML
-    private GridPane tablajuego;
+    private Label gameMode;
 
-    /**
-     * Initializes the com.espol.tictactoe.controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    @FXML
+    private Label playerOne;
+
+    @FXML
+    private Label playerTwo;
+
+    @FXML
+    private VBox returnButton;
+
+    @FXML
+    private Button saveGame;
+
+    public void initialize() {
         // TODO
         
     }
