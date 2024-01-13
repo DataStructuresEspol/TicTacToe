@@ -14,10 +14,8 @@ public class Matrix {
     }
     public int calculateUtility(Symbol player){
         Symbol opponent = (player == Symbol.X) ? Symbol.O : Symbol.X;
-
         int playerWays = countWaysToWin(play, opponent);
         int opponentWays = countWaysToWin(play, player);
-
         return playerWays - opponentWays;
     }
 
@@ -68,5 +66,17 @@ public class Matrix {
             }
         }
         return s;
+    }
+    
+    public int size(){
+        int size = 0;
+
+        for (int i = 0; i < play.length; i++) {
+            for (int j = 0; j < play[i].length; j++) {
+                if (!play[i][j].equals(Symbol.EMPTY)) size++;
+            }
+        }
+
+        return size;
     }
 }
