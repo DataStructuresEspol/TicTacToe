@@ -1,5 +1,9 @@
 package com.espol.tictactoe.model;
 
+import javafx.scene.layout.GridPane;
+
+import com.espol.tictactoe.controller.GamePlay;
+
 public abstract class Player {
     private String name;
     protected Symbol symbol;
@@ -30,4 +34,6 @@ public abstract class Player {
 
     @Override
     public abstract String toString();
+
+    public abstract void makePlay(GridPane board, GamePlay gamePlay);
 }

@@ -46,6 +46,8 @@ public class GamePlay {
 
     private GameData gameData;
 
+    private Matrix matrix;
+
     public void initialize() {
         this.gameData = GamePlayContext.getInstance().getGameData();
         gameMode.setText(gameData.getGameMode().toString());
@@ -53,7 +55,8 @@ public class GamePlay {
         playerTwo.setText(gameData.getPlayerTwo().getName());
 
         // Not always root, because may be opening a saved game
-        paintMatrix(gameData.getTree().getRoot());
+        this.matrix = gameData.getTree().getRoot();
+        paintMatrix(this.matrix);
 
         gameData.getGameMode().play(this.gameData, this);
     }
@@ -75,12 +78,35 @@ public class GamePlay {
     public void setO(int row, int col) {
         setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/circle.png");
     }
-    public void setXonHover(int row, int col) {
-        setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/greycross.png");
-    }
 
-    public void setOonHover(int row, int col) {
-        setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/greycircle.png");
+    public void setSymbol(Symbol symbol, int row, int col) {
+        if (symbol.equals(Symbol.X)) {
+            setX(row, col);
+        } else {
+            setO(row, col);
+        }
+    }
+    public void setSymbolOnHover(Symbol symbol) {
+        String greyCross = "file:src/main/resources/com/espol/tictactoe/img/greycross.png";
+        String greyCircle = "file:src/main/resources/com/espol/tictactoe/img/greycircle.png";
+
+        String imgPath = symbol.equals(Symbol.X) ? greyCross : greyCircle;
+
+        for (Node node: board.getChildren()) {
+            VBox cell = (VBox) node;
+
+            if (!cell.isDisabled()) {
+                int rowIndex = GridPane.getRowIndex(node) == null ? 0 : GridPane.getRowIndex(node);
+                int colIndex = GridPane.getColumnIndex(node) == null ? 0 : GridPane.getColumnIndex(node);
+
+                cell.setOnMouseEntered(e -> {
+                    setImage(rowIndex, colIndex, imgPath);
+                });
+                cell.setOnMouseExited(e -> {
+                    clearImage(rowIndex, colIndex);
+                });
+            }
+        }
     }
 
     private void setImage(int row, int col, String imgPath) {
@@ -110,7 +136,11 @@ public class GamePlay {
         return null;
     }
 
-    private void paintMatrix(Matrix matrix) {
+    public GridPane getBoard(){
+        return board;
+    }
+
+    public void paintMatrix(Matrix matrix) {
         for (int i = 0; i < matrix.getPlay().length; i++) {
             for (int j = 0; j < matrix.getPlay()[i].length; j++) {
                 if (matrix.getPlay()[i][j].equals(Symbol.X)) {
@@ -122,5 +152,13 @@ public class GamePlay {
                 }
             }
         }
+    }
+
+    public Matrix getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(Matrix matrix) {
+        this.matrix = matrix;
     }
 }
