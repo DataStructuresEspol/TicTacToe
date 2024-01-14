@@ -1,7 +1,9 @@
 
 package com.espol.tictactoe.model;
 
-public class Matrix {
+import java.io.Serializable;
+
+public class Matrix implements Serializable{
     private Symbol[][] play;
     
     public Matrix(){

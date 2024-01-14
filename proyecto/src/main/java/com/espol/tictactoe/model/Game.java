@@ -1,29 +1,15 @@
 
 package com.espol.tictactoe.model;
-import com.espol.tictactoe.ds.Tree;
+
 
 public class Game {
-    private Tree<Matrix> plays;
-    private Board board;
-    
-    public Game(){
-        board = new Board();
-        plays = new Tree<Matrix>(new Matrix());
+   
+    public static boolean win(Matrix m, Symbol s){
+        return false;
     }
     
-    public void next(Matrix matrix){
-        board.setValue(matrix);
+    public static int[] recomendacion(Matrix m, Symbol s){
+        return null;
     }
-    
-    public boolean win(){
-        return board.isFull();
-    }
-    
-    public Tree<Matrix> getPlays(){
-        return plays;
-    }
-    
-    public Board getBoard(){
-        return board;
-    }
+
 }
