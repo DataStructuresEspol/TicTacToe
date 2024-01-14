@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package com.espol.tictactoe.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+
+import com.espol.tictactoe.model.GameData;
 
 /**
  * FXML Controller class
@@ -31,8 +30,13 @@ public class GamePlay {
     @FXML
     private Button saveGame;
 
+    private GameData gameData;
+
     public void initialize() {
-        // TODO
-        
+
+    }
+
+    public void setGameData(GameData gameData) {
+        this.gameData = gameData;
     }
 }

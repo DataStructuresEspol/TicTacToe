@@ -27,4 +27,7 @@ public abstract class Player {
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
     }
+
+    @Override
+    public abstract String toString();
 }
