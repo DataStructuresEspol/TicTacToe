@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]){
-        Game game = new Game();
         Bot bot = new Bot(Symbol.X);
         Scanner s = new Scanner(System.in);
         
@@ -32,14 +31,12 @@ public class Main {
             //c = s.nextLine();
             
         }
+        //if(Game.win(matrix, Symbol.X)) System.out.println("Gano X");
+        //else System.out.println("Gano O");
+        
         //game.next(m);
         
         
-       
-        
-        
-        
-
         
         
     }
