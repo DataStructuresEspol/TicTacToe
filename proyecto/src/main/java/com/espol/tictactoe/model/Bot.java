@@ -2,11 +2,14 @@
 package com.espol.tictactoe.model;
 import com.espol.tictactoe.ds.Tree;
 
-public class Bot {
+public class Bot extends Player{
     private Symbol symbol;
-    
+
+    public Bot() {
+        super();
+    }
     public Bot(Symbol symbol){
-        this.symbol = symbol;
+        super("Bot", symbol);
     }
     
     public Matrix makeDecition(Matrix matrix, Symbol oponentSymbol){
