@@ -2,7 +2,6 @@ package com.espol.tictactoe.controller;
 
 import java.io.IOException;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,6 +17,7 @@ import com.espol.tictactoe.model.HumanvsHuman;
 import com.espol.tictactoe.model.PcvsHuman;
 import com.espol.tictactoe.model.PcvsPc;
 import com.espol.tictactoe.model.Player;
+import com.espol.tictactoe.model.Symbol;
 
 public class StartConfiguration {
     @FXML
@@ -28,9 +28,6 @@ public class StartConfiguration {
 
     @FXML
     private VBox chooseNames;
-
-    @FXML
-    private HBox beginOrder;
 
     @FXML
     private Label playerOneType;
@@ -53,7 +50,6 @@ public class StartConfiguration {
         this.setInitialActions();
         this.initializeGameModes();
         chooseNames.setVisible(false);
-        beginOrder.setVisible(false);
     }
 
     private void returnHome() {
@@ -101,15 +97,26 @@ public class StartConfiguration {
     private void setPlayerOne(MouseEvent e) {
         if (playerOneName.getText().length() > 0) {
             GameMode gameMode = gameData.getGameMode();
-            gameData.setPlayerOne(gameMode.playerOne());
+            Player player = gameMode.playerOne();
+            player.setName(playerOneName.getText());
+            player.setSymbol(Symbol.O);
+            gameData.setPlayerOne(player);
         }
+        checkNames();
     }
 
     @FXML
     private void setPlayerTwo(MouseEvent e) {
         if (playerTwoName.getText().length() > 0) {
             GameMode gameMode = gameData.getGameMode();
-            gameData.setPlayerTwo(gameMode.playerTwo());
+            Player player = gameMode.playerTwo();
+            player.setName(playerTwoName.getText());
+            player.setSymbol(Symbol.X);
+            gameData.setPlayerTwo(player);
         }
+        checkNames();
+    }
+
+    private void checkNames() {
     }
 }

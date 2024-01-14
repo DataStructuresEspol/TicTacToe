@@ -7,8 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Bot extends Player{
-    private Symbol symbol;
-
     public Bot() {
         super();
     }

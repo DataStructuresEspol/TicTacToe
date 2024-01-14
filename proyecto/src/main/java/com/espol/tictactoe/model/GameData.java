@@ -23,6 +23,13 @@ public class GameData {
         this.playerTwo = playerTwo;
     }
 
+    public Player getPlayerOne() {
+        return playerOne;
+    }
+
+    public Player getPlayerTwo() {
+        return playerTwo;
+    }
 
     public GameMode getGameMode() {
         return gameMode;
