@@ -1,5 +1,6 @@
 package com.espol.tictactoe.model;
 
+import com.espol.tictactoe.ds.Tree;
 import com.espol.tictactoe.logic.GameMode;
 
 public class GameData {
@@ -7,12 +8,14 @@ public class GameData {
     private Player playerOne;
     private Player playerTwo;
     private Symbol startingSymbol;
+    private Tree<Matrix> tree;
 
     public GameData() {
         this.gameMode = null;
         this.playerOne = null;
         this.playerTwo = null;
         this.startingSymbol = null;
+        this.tree = new Tree<>(new Matrix());
     }
 
     public void setGameMode(GameMode gameMode) {
@@ -52,6 +55,11 @@ public class GameData {
         this.playerOne = gameData.getPlayerOne();
         this.playerTwo = gameData.getPlayerTwo();
         this.startingSymbol = gameData.getStartingSymbol();
+        this.tree = gameData.getTree();
+    }
+
+    public Tree<Matrix> getTree() {
+        return tree;
     }
 
     @Override
@@ -61,6 +69,7 @@ public class GameData {
                 ", playerOne=" + playerOne +
                 ", playerTwo=" + playerTwo +
                 ", startingSymbol=" + startingSymbol +
+                ", tree=" + tree +
                 '}';
     }
 }

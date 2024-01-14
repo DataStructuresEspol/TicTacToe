@@ -1,13 +1,9 @@
 
 package com.espol.tictactoe.controller;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.Objects;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -19,8 +15,9 @@ import javafx.scene.layout.VBox;
 
 import com.espol.tictactoe.App;
 import com.espol.tictactoe.model.GameData;
+import com.espol.tictactoe.model.Matrix;
+import com.espol.tictactoe.model.Symbol;
 import com.espol.tictactoe.state.GamePlayContext;
-import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -44,9 +41,10 @@ public class GamePlay {
     @FXML
     private GridPane board;
 
-    private GameData gameData;
     @FXML
     public static GridPane gameMatrix;
+
+    private GameData gameData;
 
     public void initialize() {
         this.gameData = GamePlayContext.getInstance().getGameData();
@@ -54,6 +52,10 @@ public class GamePlay {
         playerOne.setText(gameData.getPlayerOne().getName());
         playerTwo.setText(gameData.getPlayerTwo().getName());
 
+        // Not always root, because may be opening a saved game
+        paintMatrix(gameData.getTree().getRoot());
+
+        gameData.getGameMode().play(this.gameData, this);
     }
 
     @FXML
@@ -65,20 +67,19 @@ public class GamePlay {
             throw new RuntimeException(e);
         }
     }
-    
 
-    private void setX(int row, int col) {
+    public void setX(int row, int col) {
         setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/cross.png");
     }
 
-    private void setO(int row, int col) {
+    public void setO(int row, int col) {
         setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/circle.png");
     }
-    private void setXonHover(int row, int col) {
+    public void setXonHover(int row, int col) {
         setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/greycross.png");
     }
 
-    private void setOonHover(int row, int col) {
+    public void setOonHover(int row, int col) {
         setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/greycircle.png");
     }
 
@@ -91,7 +92,7 @@ public class GamePlay {
         imgView.setImage(img);
     }
 
-    private void clearImage(int row, int col) {
+    public void clearImage(int row, int col) {
         VBox cell = getCell(row, col);
         assert cell != null;
         ImageView img = (ImageView) cell.getChildren().get(0);
@@ -107,5 +108,19 @@ public class GamePlay {
             }
         }
         return null;
+    }
+
+    private void paintMatrix(Matrix matrix) {
+        for (int i = 0; i < matrix.getPlay().length; i++) {
+            for (int j = 0; j < matrix.getPlay()[i].length; j++) {
+                if (matrix.getPlay()[i][j].equals(Symbol.X)) {
+                    setX(i, j);
+                } else if (matrix.getPlay()[i][j].equals(Symbol.O)) {
+                    setO(i, j);
+                } else {
+                    clearImage(i, j);
+                }
+            }
+        }
     }
 }
