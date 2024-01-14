@@ -1,5 +1,7 @@
 package com.espol.tictactoe.model;
 
+import com.espol.tictactoe.logic.GameMode;
+
 public class GameData {
     private GameMode gameMode;
     private Player playerOne;

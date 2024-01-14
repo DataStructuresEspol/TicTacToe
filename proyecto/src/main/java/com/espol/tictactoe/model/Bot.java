@@ -20,11 +20,11 @@ public class Bot extends Player{
         super("Bot", symbol);
     }
     
-    public Matrix makeDecition(Matrix matrix, Symbol oponentSymbol){
+    public Matrix makeDecision(Matrix matrix, Symbol oponentSymbol){
         List<Integer> utilidades = new ArrayList<>();
         List<Integer> u = new ArrayList<>();
         if (matrix.size() == 8){
-            finalDecition(matrix);
+            finalDecision(matrix);
             return matrix;
         }
         Tree<Matrix> tree = new Tree<>(matrix);
@@ -67,7 +67,7 @@ public class Bot extends Player{
         }
     }
     
-    private void finalDecition(Matrix matrix){
+    private void finalDecision(Matrix matrix){
         for (int i=0; i<matrix.getPlay().length; i++){
             for (int j=0; j<matrix.getPlay()[i].length; j++){
                 if (matrix.getPlay()[i][j].equals(Symbol.EMPTY)){matrix.getPlay()[i][j] = symbol;}

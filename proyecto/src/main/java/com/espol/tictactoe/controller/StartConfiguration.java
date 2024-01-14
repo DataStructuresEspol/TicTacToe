@@ -3,8 +3,6 @@ package com.espol.tictactoe.controller;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,10 +13,10 @@ import javafx.scene.layout.VBox;
 
 import com.espol.tictactoe.App;
 import com.espol.tictactoe.model.GameData;
-import com.espol.tictactoe.model.GameMode;
-import com.espol.tictactoe.model.HumanvsHuman;
-import com.espol.tictactoe.model.PcvsHuman;
-import com.espol.tictactoe.model.PcvsPc;
+import com.espol.tictactoe.logic.GameMode;
+import com.espol.tictactoe.logic.HumanvsHuman;
+import com.espol.tictactoe.logic.PcvsHuman;
+import com.espol.tictactoe.logic.PcvsPc;
 import com.espol.tictactoe.model.Player;
 import com.espol.tictactoe.model.Symbol;
 import com.espol.tictactoe.state.GamePlayContext;

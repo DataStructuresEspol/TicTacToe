@@ -1,4 +1,7 @@
-package com.espol.tictactoe.model;
+package com.espol.tictactoe.logic;
+
+import com.espol.tictactoe.model.Human;
+import com.espol.tictactoe.model.Player;
 
 public class HumanvsHuman extends GameMode {
 

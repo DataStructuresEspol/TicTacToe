@@ -15,7 +15,7 @@ public class Main {
         while (!c.equals("No")){
             
             
-            matrix = bot.makeDecition(matrix, Symbol.O);
+            matrix = bot.makeDecision(matrix, Symbol.O);
             System.out.println(matrix);
             y = Integer.parseInt(s.nextLine());
             x = Integer.parseInt(s.nextLine());
