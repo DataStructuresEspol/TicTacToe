@@ -1,31 +1,15 @@
-<<<<<<< HEAD
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\controller\IniciaJuegoController.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\modelo\Bot.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\librariesOwn\TreeNode.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\modelo\Game.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\modelo\Symbol.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\controller\SimboloJugadorController.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\com\mycompany\proyecto\App.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\controller\PrincipalController.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\modelo\Board.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\librariesOwn\Tree.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\modelo\Tree.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\module-info.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\modelo\Matrix.java
-C:\Users\ariel\OneDrive\Escritorio\TicTacToe\proyecto\src\main\java\controller\RolJuegoController.java
-=======
+C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\controller\RolJuegoController.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\modelo\Symbol.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\modelo\Board.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\modelo\Matrix.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\controller\PrincipalController.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\librariesOwn\TreeNode.java
+C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\controller\SimboloJugadorController.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\modelo\Tree.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\module-info.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\librariesOwn\Tree.java
-C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\com\mycompany\proyecto\PrimaryController.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\modelo\Main.java
-C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\com\mycompany\proyecto\SecondaryController.java
+C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\controller\IniciaJuegoController.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\modelo\Game.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\com\mycompany\proyecto\App.java
 C:\Users\USER\Documents\NetBeansProjects\ED2\TicTacToe\proyecto\src\main\java\modelo\Bot.java
->>>>>>> 725decbca6d5412a96500e2be1be4dbdeb73cf07

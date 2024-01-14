@@ -1,31 +1,42 @@
 
 package com.espol.tictactoe.model;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String args[]){
         Game game = new Game();
-        Bot bot = new Bot(Symbol.O);
-
-        Matrix matrix = new Matrix();
-        matrix.getPlay()[1][1] = Symbol.X;
-        //game.next(m);
-        System.out.println(matrix);
-        matrix = bot.makeDecition(matrix, Symbol.X);
-        matrix.getPlay()[0][1] = Symbol.X;
-        System.out.println(matrix);
-        System.out.println(matrix.calculateUtility(Symbol.O));
-        //matrix.getPlay()[2][0] = Symbol.X;
-        //System.out.println(matrix);
-        //matrix = bot.makeDecition(matrix, Symbol.X);
-        //System.out.println(matrix);
-        //matrix.getPlay()[2][0] = Symbol.X;
-        //System.out.println(matrix);
-
-        //Matrix m = new Matrix();
-        //m.getPlay()[1][1] = Symbol.X;
+        Bot bot = new Bot(Symbol.X);
+        Scanner s = new Scanner(System.in);
         
-        //Matrix matrix = bot.makeDecition(game.getPlays(), Symbol.X);
-        //System.out.println(matrix);
+        Matrix matrix = new Matrix();
+        //matrix.getPlay()[0][0] = Symbol.X;
+        //matrix.getPlay()[0][1] = Symbol.O;
+        //matrix.getPlay()[0][2] = Symbol.X;
+        //matrix.getPlay()[1][0] = Symbol.O;
+        //matrix.getPlay()[1][1] = Symbol.X;
+        //matrix.getPlay()[2][0] = Symbol.X;
+        //matrix.getPlay()[2][1] = Symbol.O;
+        //matrix.getPlay()[2][2] = Symbol.O;
+        int x, y;
+        String c = "";
+        while (!c.equals("No")){
+            
+            
+            matrix = bot.makeDecition(matrix, Symbol.O);
+            System.out.println(matrix);
+            y = Integer.parseInt(s.nextLine());
+            x = Integer.parseInt(s.nextLine());
+            matrix.getPlay()[y][x] = Symbol.O;
+            System.out.println(matrix);
+            //c = s.nextLine();
+            
+        }
+        //game.next(m);
+        
+        
+       
+        
         
         
 
