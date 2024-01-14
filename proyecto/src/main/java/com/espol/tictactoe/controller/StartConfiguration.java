@@ -3,6 +3,7 @@ package com.espol.tictactoe.controller;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -12,12 +13,13 @@ import javafx.scene.layout.VBox;
 
 import com.espol.tictactoe.App;
 import com.espol.tictactoe.model.GameData;
-import com.espol.tictactoe.model.GameMode;
-import com.espol.tictactoe.model.HumanvsHuman;
-import com.espol.tictactoe.model.PcvsHuman;
-import com.espol.tictactoe.model.PcvsPc;
+import com.espol.tictactoe.logic.GameMode;
+import com.espol.tictactoe.logic.HumanvsHuman;
+import com.espol.tictactoe.logic.PcvsHuman;
+import com.espol.tictactoe.logic.PcvsPc;
 import com.espol.tictactoe.model.Player;
 import com.espol.tictactoe.model.Symbol;
+import com.espol.tictactoe.state.GamePlayContext;
 
 public class StartConfiguration {
     @FXML
@@ -41,6 +43,9 @@ public class StartConfiguration {
     @FXML
     private TextField playerTwoName;
 
+    @FXML
+    private ComboBox<Symbol> orders;
+
     private GameData gameData;
 
     private GameMode[] gameModesList;
@@ -50,6 +55,7 @@ public class StartConfiguration {
         this.setInitialActions();
         this.initializeGameModes();
         chooseNames.setVisible(false);
+        orders.getItems().addAll(Symbol.X, Symbol.O);
     }
 
     private void returnHome() {
@@ -93,30 +99,34 @@ public class StartConfiguration {
         playerTwoType.setText(playerType[1]);
     }
 
-    @FXML
-    private void setPlayerOne(MouseEvent e) {
-        if (playerOneName.getText().length() > 0) {
-            GameMode gameMode = gameData.getGameMode();
-            Player player = gameMode.playerOne();
-            player.setName(playerOneName.getText());
-            player.setSymbol(Symbol.O);
-            gameData.setPlayerOne(player);
-        }
-        checkNames();
+    private void setPlayerOne() {
+        GameMode gameMode = gameData.getGameMode();
+        Player player = gameMode.playerOne();
+        player.setName(playerOneName.getText());
+        player.setSymbol(Symbol.O);
+        gameData.setPlayerOne(player);
+    }
+    private void setPlayerTwo() {
+        GameMode gameMode = gameData.getGameMode();
+        Player player = gameMode.playerTwo();
+        player.setName(playerTwoName.getText());
+        player.setSymbol(Symbol.X);
+        gameData.setPlayerTwo(player);
     }
 
     @FXML
-    private void setPlayerTwo(MouseEvent e) {
-        if (playerTwoName.getText().length() > 0) {
-            GameMode gameMode = gameData.getGameMode();
-            Player player = gameMode.playerTwo();
-            player.setName(playerTwoName.getText());
-            player.setSymbol(Symbol.X);
-            gameData.setPlayerTwo(player);
-        }
-        checkNames();
-    }
+    private void play() {
+        setPlayerOne();
+        setPlayerTwo();
+        gameData.setStartingSymbol(orders.getValue());
 
-    private void checkNames() {
+        GamePlayContext.getInstance().getGameData().setGameData(gameData);
+
+        try {
+            App.setRoot("gameplay");
+        } catch (
+                IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

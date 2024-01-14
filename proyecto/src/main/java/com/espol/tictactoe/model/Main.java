@@ -15,7 +15,7 @@ public class Main {
         while (!c.equals("No")){
             
             
-            matrix = bot.makeDecition(matrix, Symbol.O);
+            matrix = bot.makeDecision(matrix, Symbol.O);
             System.out.println(matrix);
             int[] rec = Game.recomendacion(matrix, Symbol.O);
             System.out.println("recomendacion"+rec[0]+" "+rec[1]);
@@ -26,15 +26,9 @@ public class Main {
             //c = s.nextLine();
             
         }
+        //if(Game.win(matrix, Symbol.X)) System.out.println("Gano X");
+        //else System.out.println("Gano O");
+        
         //game.next(m);
-        
-        
-       
-        
-        
-        
-
-        
-        
     }
 }

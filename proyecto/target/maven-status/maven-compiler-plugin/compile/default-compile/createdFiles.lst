@@ -3,7 +3,6 @@ com\espol\tictactoe\model\Symbol.class
 com\espol\tictactoe\ds\TreeNode.class
 com\espol\tictactoe\model\PcvsHuman.class
 com\espol\tictactoe\model\Matrix.class
-com\espol\tictactoe\model\Tree$Node.class
 com\espol\tictactoe\App.class
 com\espol\tictactoe\model\Game.class
 com\espol\tictactoe\controller\GamePlay.class
@@ -13,7 +12,7 @@ module-info.class
 com\espol\tictactoe\model\Main.class
 com\espol\tictactoe\model\HumanvsHuman.class
 com\espol\tictactoe\controller\Home.class
-com\espol\tictactoe\model\Tree.class
+com\espol\tictactoe\state\GamePlayContext.class
 com\espol\tictactoe\ds\Tree.class
 com\espol\tictactoe\controller\History.class
 com\espol\tictactoe\model\Player.class
