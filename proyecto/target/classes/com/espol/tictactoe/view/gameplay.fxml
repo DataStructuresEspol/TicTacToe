@@ -48,7 +48,7 @@
          <children>
             <VBox>
                <children>
-                  <GridPane hgap="10.0" vgap="10.0">
+                  <GridPane fx:id="board" hgap="10.0" vgap="10.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -68,6 +68,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.rowIndex="1">
                            <children>
@@ -77,6 +80,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.rowIndex="2">
                            <children>
@@ -86,6 +92,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.columnIndex="1">
                            <children>
@@ -95,6 +104,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.columnIndex="2">
                            <children>
@@ -104,6 +116,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <children>
@@ -113,6 +128,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <children>
@@ -122,6 +140,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
@@ -131,6 +152,9 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="125.0" prefWidth="125.0" style="-fx-background-color: #233542; -fx-background-radius: 7;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <children>
@@ -140,12 +164,15 @@
                                  </image>
                               </ImageView>
                            </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </VBox>
                      </children>
                   </GridPane>
                </children>
             </VBox>
-            <VBox fx:id="returnButton" alignment="TOP_CENTER">
+            <VBox alignment="TOP_CENTER">
                <children>
                   <Label text="Informacion Basica" textFill="WHITE">
                      <font>
