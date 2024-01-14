@@ -20,7 +20,7 @@ public class Bot extends Player{
         super("Bot", symbol);
     }
     
-    public Matrix makeDecision(Matrix matrix, Symbol oponentSymbol){
+    public Matrix makeDecition(Matrix matrix, Symbol oponentSymbol){
         List<Integer> utilidades = new ArrayList<>();
         List<Integer> u = new ArrayList<>();
         if (matrix.size() == 8){
