@@ -119,8 +119,6 @@ public class StartConfiguration {
         setPlayerTwo();
         gameData.setStartingSymbol(orders.getValue());
 
-        System.out.println(gameData);
-
         try {
             App.setRoot("gameplay");
         } catch (
