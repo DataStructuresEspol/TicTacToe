@@ -54,6 +54,7 @@ public class StartConfiguration {
         this.setInitialActions();
         this.initializeGameModes();
         chooseNames.setVisible(false);
+        orders.getItems().addAll(Symbol.X, Symbol.O);
     }
 
     private void returnHome() {
@@ -89,7 +90,6 @@ public class StartConfiguration {
         });
         chooseNames.setVisible(true);
         setPlayerTypes();
-        orders.getItems().addAll(Symbol.X, Symbol.O);
     }
 
     private void setPlayerTypes() {
