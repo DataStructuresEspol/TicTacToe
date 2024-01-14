@@ -8,5 +8,8 @@ public class Human extends Player{
         super(name, symbol);
     }
 
-
+    @Override
+    public String toString() {
+        return null;
+    }
 }

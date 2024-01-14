@@ -148,12 +148,12 @@
                         <Image url="@../img/cross.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="playerOneName" onMouseClicked="#setPlayerOne" promptText="Nombre..." style="-fx-background-color: #233542; -fx-text-fill: white;" GridPane.columnIndex="2">
+                  <TextField fx:id="playerOneName" promptText="Nombre..." style="-fx-background-color: #233542; -fx-text-fill: white;" GridPane.columnIndex="2">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="playerTwoName" onMouseClicked="#setPlayerTwo" promptText="Nombre..." style="-fx-background-color: #233542; -fx-text-fill: white;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="playerTwoName" promptText="Nombre..." style="-fx-background-color: #233542; -fx-text-fill: white;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -177,19 +177,29 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox prefWidth="150.0" style="-fx-background-color: #233542;" />
+                  <ComboBox fx:id="orders" prefWidth="150.0" style="-fx-background-color: #233542;" stylesheets="@../styles/combobox.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ComboBox>
                </children>
             </HBox>
+            <Button fx:id="playButton" mnemonicParsing="false" onMouseClicked="#play" style="-fx-background-color: #233542;" text="Jugar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+               </padding>
+            </Button>
          </children>
          <VBox.margin>
             <Insets top="50.0" />
          </VBox.margin>
       </VBox>
-      <Button fx:id="playButton" mnemonicParsing="false" style="-fx-background-color: #233542;" text="Jugar" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
    </children>
    <padding>
       <Insets bottom="20.0" left="30.0" right="30.0" />

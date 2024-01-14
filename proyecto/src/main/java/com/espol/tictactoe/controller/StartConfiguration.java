@@ -3,6 +3,7 @@ package com.espol.tictactoe.controller;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -40,6 +41,9 @@ public class StartConfiguration {
 
     @FXML
     private TextField playerTwoName;
+
+    @FXML
+    private ComboBox<Symbol> orders;
 
     private GameData gameData;
 
@@ -85,6 +89,7 @@ public class StartConfiguration {
         });
         chooseNames.setVisible(true);
         setPlayerTypes();
+        orders.getItems().addAll(Symbol.X, Symbol.O);
     }
 
     private void setPlayerTypes() {
@@ -93,30 +98,34 @@ public class StartConfiguration {
         playerTwoType.setText(playerType[1]);
     }
 
-    @FXML
-    private void setPlayerOne(MouseEvent e) {
-        if (playerOneName.getText().length() > 0) {
-            GameMode gameMode = gameData.getGameMode();
-            Player player = gameMode.playerOne();
-            player.setName(playerOneName.getText());
-            player.setSymbol(Symbol.O);
-            gameData.setPlayerOne(player);
-        }
-        checkNames();
+    private void setPlayerOne() {
+        GameMode gameMode = gameData.getGameMode();
+        Player player = gameMode.playerOne();
+        player.setName(playerOneName.getText());
+        player.setSymbol(Symbol.O);
+        gameData.setPlayerOne(player);
+    }
+    private void setPlayerTwo() {
+        GameMode gameMode = gameData.getGameMode();
+        Player player = gameMode.playerTwo();
+        player.setName(playerTwoName.getText());
+        player.setSymbol(Symbol.X);
+        gameData.setPlayerTwo(player);
     }
 
     @FXML
-    private void setPlayerTwo(MouseEvent e) {
-        if (playerTwoName.getText().length() > 0) {
-            GameMode gameMode = gameData.getGameMode();
-            Player player = gameMode.playerTwo();
-            player.setName(playerTwoName.getText());
-            player.setSymbol(Symbol.X);
-            gameData.setPlayerTwo(player);
-        }
-        checkNames();
-    }
+    private void play() {
+        setPlayerOne();
+        setPlayerTwo();
+        gameData.setStartingSymbol(orders.getValue());
 
-    private void checkNames() {
+        System.out.println(gameData);
+
+        try {
+            App.setRoot("gameplay");
+        } catch (
+                IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

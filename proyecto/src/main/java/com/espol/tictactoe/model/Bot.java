@@ -10,6 +10,12 @@ public class Bot extends Player{
     public Bot() {
         super();
     }
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+
     public Bot(Symbol symbol){
         super("Bot", symbol);
     }
