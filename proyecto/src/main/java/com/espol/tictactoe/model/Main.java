@@ -5,10 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]){
-<<<<<<< HEAD
-=======
         //Gaz = new Game();
->>>>>>> a8a5798ab027c6b43ebc00df80ce672a4423fd90
         Bot bot = new Bot(Symbol.X);
         Scanner s = new Scanner(System.in);
         
@@ -31,9 +28,5 @@ public class Main {
         //else System.out.println("Gano O");
         
         //game.next(m);
-        
-        
-        
-        
     }
 }

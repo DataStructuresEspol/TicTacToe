@@ -1,6 +1,5 @@
 
 package com.espol.tictactoe.model;
-<<<<<<< HEAD
 
 public class Game {
     
@@ -20,18 +19,9 @@ public class Game {
         }
 
         return false;
-=======
-
-
-public class Game {
-   
-    public static boolean win(Matrix m, Symbol s){
-        return false;
     }
     
     public static int[] recomendacion(Matrix m, Symbol s){
         return null;
->>>>>>> a8a5798ab027c6b43ebc00df80ce672a4423fd90
     }
-
 }
