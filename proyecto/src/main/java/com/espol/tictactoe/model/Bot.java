@@ -20,7 +20,7 @@ public class Bot extends Player{
         super("Bot", symbol);
     }
     
-    public Matrix makeDecision(Matrix matrix, Symbol oponentSymbol){
+    public Matrix makeDecition(Matrix matrix, Symbol oponentSymbol){
         List<Integer> utilidades = new ArrayList<>();
         List<Integer> u = new ArrayList<>();
         if (matrix.size() == 8){
@@ -30,6 +30,7 @@ public class Bot extends Player{
         Tree<Matrix> tree = new Tree<>(matrix);
         thinkNextPlays(tree, symbol);
         for (Tree<Matrix> t: tree.getChildren()){
+            
             thinkNextPlays(t, oponentSymbol);
             u.clear();
             for (int i=0; i<t.getChildren().size(); i++){
@@ -52,11 +53,8 @@ public class Bot extends Player{
     
     private void thinkNextPlays(Tree<Matrix> tree, Symbol symbol){
         Matrix matrix = tree.getRoot();
-        int children = 0;
-        
         for (int i=0; i<matrix.getPlay().length; i++){
             for (int j=0; j<matrix.getPlay()[i].length; j++){
-                
                 if (matrix.getPlay()[i][j].equals(Symbol.EMPTY)){
                     Matrix m = matrix.copy();
                     
