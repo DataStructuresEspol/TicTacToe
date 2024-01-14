@@ -3,6 +3,8 @@ package com.espol.tictactoe.controller;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,6 +21,7 @@ import com.espol.tictactoe.model.PcvsHuman;
 import com.espol.tictactoe.model.PcvsPc;
 import com.espol.tictactoe.model.Player;
 import com.espol.tictactoe.model.Symbol;
+import com.espol.tictactoe.state.GamePlayContext;
 
 public class StartConfiguration {
     @FXML
@@ -118,6 +121,8 @@ public class StartConfiguration {
         setPlayerOne();
         setPlayerTwo();
         gameData.setStartingSymbol(orders.getValue());
+
+        GamePlayContext.getInstance().getGameData().setGameData(gameData);
 
         try {
             App.setRoot("gameplay");

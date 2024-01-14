@@ -45,6 +45,13 @@ public class GameData {
         this.startingSymbol = startingSymbol;
     }
 
+    public void setGameData(GameData gameData) {
+        this.gameMode = gameData.getGameMode();
+        this.playerOne = gameData.getPlayerOne();
+        this.playerTwo = gameData.getPlayerTwo();
+        this.startingSymbol = gameData.getStartingSymbol();
+    }
+
     @Override
     public String toString() {
         return "GameData{" +
