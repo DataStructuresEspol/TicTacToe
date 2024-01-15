@@ -21,9 +21,4 @@ public class HumanvsHuman extends GameMode {
     public Player playerTwo() {
         return new Human();
     }
-
-    @Override
-    public void play(GameData gameData, GamePlay gamePlay) {
-
-    }
 }

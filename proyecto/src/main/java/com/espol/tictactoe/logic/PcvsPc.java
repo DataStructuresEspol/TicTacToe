@@ -21,9 +21,4 @@ public class PcvsPc extends GameMode {
     public Player playerTwo() {
         return new Bot();
     }
-
-    @Override
-    public void play(GameData gameData, GamePlay gamePlay) {
-
-    }
 }
