@@ -1,4 +1,3 @@
-
 package com.espol.tictactoe.controller;
 
 import java.io.IOException;
@@ -16,6 +15,7 @@ import javafx.scene.layout.VBox;
 import com.espol.tictactoe.App;
 import com.espol.tictactoe.model.GameData;
 import com.espol.tictactoe.model.Matrix;
+import com.espol.tictactoe.model.Player;
 import com.espol.tictactoe.model.Symbol;
 import com.espol.tictactoe.state.GamePlayContext;
 
@@ -56,9 +56,9 @@ public class GamePlay {
 
         // Not always root, because may be opening a saved game
         this.matrix = gameData.getTree().getRoot();
-        paintMatrix(this.matrix);
+        this.paintMatrix(this.matrix);
 
-        gameData.getGameMode().play(this.gameData, this);
+        this.play();
     }
 
     @FXML
@@ -79,13 +79,6 @@ public class GamePlay {
         setImage(row, col, "file:src/main/resources/com/espol/tictactoe/img/circle.png");
     }
 
-    public void setSymbol(Symbol symbol, int row, int col) {
-        if (symbol.equals(Symbol.X)) {
-            setX(row, col);
-        } else {
-            setO(row, col);
-        }
-    }
     public void setSymbolOnHover(Symbol symbol) {
         String greyCross = "file:src/main/resources/com/espol/tictactoe/img/greycross.png";
         String greyCircle = "file:src/main/resources/com/espol/tictactoe/img/greycircle.png";
@@ -118,11 +111,23 @@ public class GamePlay {
         imgView.setImage(img);
     }
 
-    public void clearImage(int row, int col) {
+    private void disableCell(int row, int col) {
         VBox cell = getCell(row, col);
         assert cell != null;
-        ImageView img = (ImageView) cell.getChildren().get(0);
-        img.setImage(null);
+        cell.setDisable(true);
+    }
+
+    public void clearImage(int row, int col) {
+        Symbol[][] matrixPlay = this.matrix.getPlay();
+        Symbol symbol = matrixPlay[row][col];
+        boolean isEmpty = symbol.equals(Symbol.EMPTY);
+
+        if (isEmpty) {
+            VBox cell = getCell(row, col);
+            assert cell != null;
+            ImageView img = (ImageView) cell.getChildren().get(0);
+            img.setImage(null);
+        }
     }
 
     private VBox getCell(Integer row, Integer col) {
@@ -154,11 +159,40 @@ public class GamePlay {
         }
     }
 
+    public void rePaint() {
+        for (int i = 0; i < matrix.getPlay().length; i++) {
+            for (int j = 0; j < matrix.getPlay()[i].length; j++) {
+                if (matrix.getPlay()[i][j].equals(Symbol.X)) {
+                    setX(i, j);
+                    disableCell(i, j);
+                } else if (matrix.getPlay()[i][j].equals(Symbol.O)) {
+                    setO(i, j);
+                    disableCell(i, j);
+                } else {
+                    clearImage(i, j);
+                }
+            }
+        }
+    }
+
     public Matrix getMatrix() {
         return matrix;
     }
 
     public void setMatrix(Matrix matrix) {
         this.matrix = matrix;
+    }
+
+    private void play() {
+        Symbol startingSymbol = gameData.getStartingSymbol();
+        Player one = gameData.getPlayerOne();
+        Player two = gameData.getPlayerTwo();
+
+        boolean startsOne = startingSymbol.equals(one.getSymbol());
+
+        Player startingPlayer = startsOne ? one : two;
+        Player secondPlayer = startsOne ? two : one;
+
+        startingPlayer.play(secondPlayer, this);
     }
 }

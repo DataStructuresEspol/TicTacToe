@@ -2,37 +2,40 @@ package com.espol.tictactoe.model;
 
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-
 import com.espol.tictactoe.controller.GamePlay;
 
 public class Human extends Player{
     
     public Human() {
+        super();
     }
-    public Human(String name, Symbol symbol) {
-        super(name, symbol);
-    }
-
     @Override
     public String toString() {
-        return null;
+        return "Human{" +
+                "name='" + name + '\'' +
+                ", symbol=" + symbol +
+                '}';
     }
 
     @Override
-    public void makePlay(GridPane board, GamePlay gamePlay) {
-        for (Node node: board.getChildren()) {
-            int row = GridPane.getRowIndex(node) == null ? 0 : GridPane.getRowIndex(node);
-            int col = GridPane.getColumnIndex(node) == null ? 0 : GridPane.getColumnIndex(node);
+    public void play(Player opponentPlayer, GamePlay gamePlay) {
+        GridPane board = gamePlay.getBoard();
+        gamePlay.setSymbolOnHover(this.symbol);
 
-            VBox vBox = (VBox) node;
-            vBox.setOnMouseClicked(e -> {
-                Matrix m = gamePlay.getMatrix();
-                m.getPlay()[row][col] = this.symbol;
-                gamePlay.setMatrix(m);
-                gamePlay.setSymbol(this.symbol, row, col);
-                vBox.setDisable(true);
-            });
-        }
+        board.setOnMouseClicked(e -> {
+            Node node = (Node) e.getTarget();
+            Node parent = node.getParent();
+
+            Integer rowIndex = GridPane.getRowIndex(parent);
+            Integer colIndex = GridPane.getColumnIndex(parent);
+            int row = rowIndex == null ? 0 : rowIndex;
+            int column = colIndex == null ? 0 : colIndex;
+
+            Matrix newMatrix = gamePlay.getMatrix().copy();
+            newMatrix.setSymbol(row, column, this.symbol);
+            gamePlay.setMatrix(newMatrix);
+            gamePlay.rePaint();
+            opponentPlayer.play(this, gamePlay);
+        });
     }
 }

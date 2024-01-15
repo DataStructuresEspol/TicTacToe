@@ -79,4 +79,8 @@ public class Matrix implements Serializable{
 
         return size;
     }
+
+    public void setSymbol(int i, int j, Symbol symbol){
+        play[i][j] = symbol;
+    }
 }

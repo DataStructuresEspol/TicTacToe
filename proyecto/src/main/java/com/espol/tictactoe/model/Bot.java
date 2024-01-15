@@ -1,14 +1,14 @@
-
-
 package com.espol.tictactoe.model;
+
 import com.espol.tictactoe.controller.GamePlay;
 import com.espol.tictactoe.ds.Tree;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
-import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 public class Bot extends Player{
     public Bot() {
@@ -18,23 +18,6 @@ public class Bot extends Player{
     @Override
     public String toString() {
         return this.getName();
-    }
-
-    @Override
-    public void makePlay(GridPane board, GamePlay gamePlay) {
-        Matrix currentMatrix = gamePlay.getMatrix();
-        Symbol opponentSymbol = this.getSymbol().equals(Symbol.X) ? Symbol.O : Symbol.X;
-        Matrix newMatrix = makeDecition(currentMatrix, opponentSymbol);
-        gamePlay.setMatrix(newMatrix);
-        Platform.runLater(() -> {
-            try {
-                Thread.sleep(1000);
-                gamePlay.paintMatrix(newMatrix);
-            } catch (
-                    InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        });
     }
 
     public Bot(Symbol symbol){
@@ -58,16 +41,9 @@ public class Bot extends Player{
                 Matrix m = t.getChildren().get(i).getRoot();
                 int utility = m.calculateUtility(symbol);
                 u.add(utility);
-                //System.out.println(m);
-                
-                
             }
-            //System.out.print("utilidades");
-            //System.out.println(u);
             utilidades.add(Collections.min(u));
-            
         }
-        //System.out.println(utilidades);
         int max = Collections.max(utilidades);
         return tree.getChildren().get(utilidades.indexOf(max)).getRoot();
     }
@@ -92,5 +68,20 @@ public class Bot extends Player{
                 if (matrix.getPlay()[i][j].equals(Symbol.EMPTY)){matrix.getPlay()[i][j] = symbol;}
             }
         }
+    }
+
+    @Override
+    public void play(Player opponentPlayer, GamePlay gamePlay) {
+        Matrix matrix = gamePlay.getMatrix();
+        Matrix newMatrix = makeDecition(matrix, opponentPlayer.getSymbol());
+        gamePlay.setMatrix(newMatrix);
+        PauseTransition pause = new PauseTransition(Duration.seconds(1));
+        pause.setOnFinished(e -> {
+            Platform.runLater(() -> {
+                gamePlay.rePaint();
+            });
+            opponentPlayer.play(this, gamePlay);
+        });
+        pause.play();
     }
 }
