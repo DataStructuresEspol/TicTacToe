@@ -83,4 +83,20 @@ public class Matrix implements Serializable{
     public void setSymbol(int i, int j, Symbol symbol){
         play[i][j] = symbol;
     }
+
+    public static boolean isFull(Matrix matrix) {
+        int size = 0;
+        int e = 0;
+
+        Symbol[][] play = matrix.getPlay();
+
+        for (int i = 0; i < play.length; i++) {
+            for (int j = 0; j < play[i].length; j++) {
+                size++;
+                if (!play[i][j].equals(Symbol.EMPTY)) e++;
+            }
+        }
+
+        return e == size;
+    }
 }

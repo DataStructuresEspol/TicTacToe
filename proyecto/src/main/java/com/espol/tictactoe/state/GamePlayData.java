@@ -5,20 +5,17 @@
 package com.espol.tictactoe.state;
 
 import com.espol.tictactoe.controller.GamePlay;
-import com.espol.tictactoe.model.GameData;
+import com.espol.tictactoe.model.Game;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
-
 
 /**
  *
  * @author ariel
  */
 public class GamePlayData {
-    private GameData gameData;
+    private Game game;
     
     private void saveInformation(){
         StringBuilder text = new StringBuilder(); 
@@ -26,9 +23,9 @@ public class GamePlayData {
         GamePlay.gameMatrix.getChildren().forEach((child) -> {
             text.append(child.toString()).append(" ");
         });
-        text.append(gameData.getPlayerOne().toString()).append(" ");
-        text.append(gameData.getPlayerTwo().toString()).append(" ");
-        text.append(gameData.getStartingSymbol().toString()).append(" ");
+        text.append(game.getPlayerOne().toString()).append(" ");
+        text.append(game.getPlayerTwo().toString()).append(" ");
+        text.append(game.getStartingSymbol().toString()).append(" ");
 
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("game_data"))) {
             oos.writeObject(text.toString());

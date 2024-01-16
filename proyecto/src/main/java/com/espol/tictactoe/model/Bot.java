@@ -72,14 +72,18 @@ public class Bot extends Player{
 
     @Override
     public void play(Player opponentPlayer, GamePlay gamePlay) {
+        boolean canPlay = super.canPlay(gamePlay.getMatrix());
+        if (!canPlay) {
+            gamePlay.checkWinners();
+            return;
+        }
+
         Matrix matrix = gamePlay.getMatrix();
         Matrix newMatrix = makeDecition(matrix, opponentPlayer.getSymbol());
         gamePlay.setMatrix(newMatrix);
         PauseTransition pause = new PauseTransition(Duration.seconds(1));
         pause.setOnFinished(e -> {
-            Platform.runLater(() -> {
-                gamePlay.rePaint();
-            });
+            Platform.runLater(gamePlay::rePaint);
             opponentPlayer.play(this, gamePlay);
         });
         pause.play();

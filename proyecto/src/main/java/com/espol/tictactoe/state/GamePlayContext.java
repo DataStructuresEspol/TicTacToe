@@ -1,6 +1,6 @@
 package com.espol.tictactoe.state;
 
-import com.espol.tictactoe.model.GameData;
+import com.espol.tictactoe.model.Game;
 
 public class GamePlayContext {
     private final static GamePlayContext instance = new GamePlayContext();
@@ -9,9 +9,9 @@ public class GamePlayContext {
         return instance;
     }
 
-    private final GameData gameData = new GameData();
+    private final Game game = new Game();
 
-    public GameData getGameData() {
-        return gameData;
+    public Game getGameData() {
+        return game;
     }
 }

@@ -33,4 +33,13 @@ public abstract class Player {
     public abstract String toString();
 
     public abstract void play(Player opponentPlayer, GamePlay gamePlay);
+
+    public boolean canPlay(Matrix matrix){
+        boolean xWon = Game.win(matrix, Symbol.X);
+        boolean oWon = Game.win(matrix, Symbol.O);
+
+        boolean isFull = Matrix.isFull(matrix);
+
+        return !xWon && !oWon && !isFull;
+    }
 }

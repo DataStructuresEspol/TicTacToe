@@ -12,7 +12,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import com.espol.tictactoe.App;
-import com.espol.tictactoe.model.GameData;
+import com.espol.tictactoe.model.Game;
 import com.espol.tictactoe.logic.GameMode;
 import com.espol.tictactoe.logic.HumanvsHuman;
 import com.espol.tictactoe.logic.PcvsHuman;
@@ -46,12 +46,12 @@ public class StartConfiguration {
     @FXML
     private ComboBox<Symbol> orders;
 
-    private GameData gameData;
+    private Game game;
 
     private GameMode[] gameModesList;
 
     public void initialize() {
-        gameData = new GameData();
+        game = new Game();
         this.setInitialActions();
         this.initializeGameModes();
         chooseNames.setVisible(false);
@@ -84,7 +84,7 @@ public class StartConfiguration {
             VBox box = (VBox) child;
             if (box.equals(e.getSource())) {
                 box.setStyle("-fx-background-color: #233542; -fx-background-radius: 10px;");
-                gameData.setGameMode(gameModesList[gameModes.getChildren().indexOf(box)]);
+                game.setGameMode(gameModesList[gameModes.getChildren().indexOf(box)]);
             } else {
                 box.setStyle("");
             }
@@ -94,33 +94,33 @@ public class StartConfiguration {
     }
 
     private void setPlayerTypes() {
-        String[] playerType = gameData.getGameMode().toString().split(" vs ");
+        String[] playerType = game.getGameMode().toString().split(" vs ");
         playerOneType.setText(playerType[0]);
         playerTwoType.setText(playerType[1]);
     }
 
     private void setPlayerOne() {
-        GameMode gameMode = gameData.getGameMode();
+        GameMode gameMode = game.getGameMode();
         Player player = gameMode.playerOne();
         player.setName(playerOneName.getText());
         player.setSymbol(Symbol.O);
-        gameData.setPlayerOne(player);
+        game.setPlayerOne(player);
     }
     private void setPlayerTwo() {
-        GameMode gameMode = gameData.getGameMode();
+        GameMode gameMode = game.getGameMode();
         Player player = gameMode.playerTwo();
         player.setName(playerTwoName.getText());
         player.setSymbol(Symbol.X);
-        gameData.setPlayerTwo(player);
+        game.setPlayerTwo(player);
     }
 
     @FXML
     private void play() {
         setPlayerOne();
         setPlayerTwo();
-        gameData.setStartingSymbol(orders.getValue());
+        game.setStartingSymbol(orders.getValue());
 
-        GamePlayContext.getInstance().getGameData().setGameData(gameData);
+        GamePlayContext.getInstance().getGameData().setGameData(game);
 
         try {
             App.setRoot("gameplay");

@@ -4,16 +4,22 @@ import java.io.IOException;
 import java.util.Objects;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import com.espol.tictactoe.App;
-import com.espol.tictactoe.model.GameData;
+import com.espol.tictactoe.model.Game;
 import com.espol.tictactoe.model.Matrix;
 import com.espol.tictactoe.model.Player;
 import com.espol.tictactoe.model.Symbol;
@@ -44,18 +50,18 @@ public class GamePlay {
     @FXML
     public static GridPane gameMatrix;
 
-    private GameData gameData;
+    private Game game;
 
     private Matrix matrix;
 
     public void initialize() {
-        this.gameData = GamePlayContext.getInstance().getGameData();
-        gameMode.setText(gameData.getGameMode().toString());
-        playerOne.setText(gameData.getPlayerOne().getName());
-        playerTwo.setText(gameData.getPlayerTwo().getName());
+        this.game = GamePlayContext.getInstance().getGameData();
+        gameMode.setText(game.getGameMode().toString());
+        playerOne.setText(game.getPlayerOne().getName());
+        playerTwo.setText(game.getPlayerTwo().getName());
 
         // Not always root, because may be opening a saved game
-        this.matrix = gameData.getTree().getRoot();
+        this.matrix = game.getTree().getRoot();
         this.paintMatrix(this.matrix);
 
         this.play();
@@ -184,9 +190,9 @@ public class GamePlay {
     }
 
     private void play() {
-        Symbol startingSymbol = gameData.getStartingSymbol();
-        Player one = gameData.getPlayerOne();
-        Player two = gameData.getPlayerTwo();
+        Symbol startingSymbol = game.getStartingSymbol();
+        Player one = game.getPlayerOne();
+        Player two = game.getPlayerTwo();
 
         boolean startsOne = startingSymbol.equals(one.getSymbol());
 
@@ -194,5 +200,52 @@ public class GamePlay {
         Player secondPlayer = startsOne ? two : one;
 
         startingPlayer.play(secondPlayer, this);
+    }
+
+    public void checkWinners() {
+        boolean xWon = Game.win(this.matrix, Symbol.X);
+        boolean oWon = Game.win(this.matrix, Symbol.O);
+
+        if (xWon || oWon) {
+            Player winner = oWon ? game.getPlayerOne() : game.getPlayerTwo();
+
+            try {
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("view/winner.fxml"));
+                Parent root = loader.load();
+                Winner winnerController = loader.getController();
+
+                winnerController.initData(winner);
+
+                Stage stage = new Stage();
+
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Congratulations!");
+
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (
+                    IOException e) {
+                throw new RuntimeException(e);
+            }
+            this.returnHome();
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("view/end.fxml"));
+                Parent root = loader.load();
+                Stage stage = new Stage();
+
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Game Over");
+
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (
+                    IOException e) {
+                throw new RuntimeException(e);
+            }
+            this.returnHome();
+        }
     }
 }

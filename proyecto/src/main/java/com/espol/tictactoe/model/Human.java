@@ -19,6 +19,12 @@ public class Human extends Player{
 
     @Override
     public void play(Player opponentPlayer, GamePlay gamePlay) {
+        boolean canPlay = super.canPlay(gamePlay.getMatrix());
+        if (!canPlay) {
+            gamePlay.checkWinners();
+            return;
+        }
+
         GridPane board = gamePlay.getBoard();
         gamePlay.setSymbolOnHover(this.symbol);
 
