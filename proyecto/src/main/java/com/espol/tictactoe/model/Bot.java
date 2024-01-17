@@ -78,6 +78,8 @@ public class Bot extends Player{
             return;
         }
 
+        gamePlay.setPlayerTurn(this);
+        gamePlay.clearBestPlay();
         Matrix matrix = gamePlay.getMatrix();
         Matrix newMatrix = makeDecition(matrix, opponentPlayer.getSymbol());
         gamePlay.setMatrix(newMatrix);

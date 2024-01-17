@@ -42,7 +42,10 @@ public class GamePlay {
     private Label playerTwo;
 
     @FXML
-    private Button saveGame;
+    private Button recommend;
+
+    @FXML
+    private Label bestPlay;
 
     @FXML
     private GridPane board;
@@ -54,6 +57,8 @@ public class GamePlay {
 
     private Matrix matrix;
 
+    private Player playerTurn;
+
     public void initialize() {
         this.game = GamePlayContext.getInstance().getGameData();
         gameMode.setText(game.getGameMode().toString());
@@ -63,6 +68,12 @@ public class GamePlay {
         // Not always root, because may be opening a saved game
         this.matrix = game.getTree().getRoot();
         this.paintMatrix(this.matrix);
+        bestPlay.setText("");
+
+        recommend.setOnMouseClicked(e -> {
+            int[] best = Game.recomendacion(this.matrix, this.playerTurn.getSymbol());
+            bestPlay.setText("Se recomienda jugar en la fila " + (best[0]+1)  + " columna " + (best[1]+1) + ".");
+        });
 
         this.play();
     }
@@ -247,5 +258,13 @@ public class GamePlay {
             }
             this.returnHome();
         }
+    }
+
+    public void setPlayerTurn(Player p) {
+        this.playerTurn = p;
+    }
+
+    public void clearBestPlay(){
+        bestPlay.setText("");
     }
 }

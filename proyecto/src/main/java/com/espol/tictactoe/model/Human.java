@@ -27,6 +27,8 @@ public class Human extends Player{
 
         GridPane board = gamePlay.getBoard();
         gamePlay.setSymbolOnHover(this.symbol);
+        gamePlay.setPlayerTurn(this);
+        gamePlay.clearBestPlay();
 
         board.setOnMouseClicked(e -> {
             Node node = (Node) e.getTarget();

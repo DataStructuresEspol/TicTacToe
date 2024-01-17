@@ -235,6 +235,34 @@
                         <Insets bottom="30.0" top="30.0" />
                      </padding>
                   </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <Label text="Recomendaciones" textFill="#52ffc5">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="recommend" mnemonicParsing="false" style="-fx-background-color: #1A2831; -fx-background-radius: 10;" text="Mostrar" textFill="#5ffccc">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Label fx:id="bestPlay" text="Se recomienda colocar en la posicion x, y" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" />
@@ -245,21 +273,7 @@
             <Insets bottom="10.0" top="10.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="saveGame" mnemonicParsing="false" style="-fx-background-color: #1A2831; -fx-background-radius: 10;" text="Guardar Partida" textFill="#5ffccc">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
-               </padding>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
    </children>
    <padding>
       <Insets bottom="20.0" left="30.0" right="30.0" />
