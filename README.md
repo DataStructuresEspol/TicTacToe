@@ -3,7 +3,7 @@
 TicTacToe es una implementación del clásico juego de 3 en raya en Java, que incluye varias funcionalidades y modos de juego. Este proyecto utiliza JavaFX para crear una interfaz de usuario moderna y atractiva.
 
 ## Demo
-![tictactoe](https://github.com/DataStructuresEspol/TicTacToe/assets/61257604/025ef4da-cfba-4f91-9d4e-5ba6e46e28e3)
+![tictactoe](https://github.com/DataStructuresEspol/TicTacToe/assets/61257604/22f65c23-fdb5-4243-ac9f-2893d3748256)
 
 
 ## Funcionalidades
